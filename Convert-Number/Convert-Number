@@ -1,0 +1,83 @@
+using System;
+
+namespace ConvertNumber
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+
+      Console.Clear();
+      string SelectOptions;
+      do
+      {
+        Console.Clear();
+        DispOptions();
+        SelectOptions = (Console.ReadLine());
+        OptionOutput(SelectOptions);
+
+      } while (SelectOptions != "3");
+
+    }
+    static void DispOptions()
+    {
+      Console.WriteLine("WELCOME");
+      Console.WriteLine("Enter a number to execute");
+      Console.WriteLine("1) Convert number to alphabet");
+      Console.WriteLine("2) Convert number to day of week");
+      Console.WriteLine("3) Exit");
+      Console.Write("-->");
+    }
+
+    static void OptionOutput(string SearchOption)
+    {
+      Console.Clear();
+      switch (SearchOption)
+      {
+        case "1":
+          Console.WriteLine("Enter a number between 1 to 10 :");
+          NumberToAlphabet(Convert.ToInt32(Console.ReadLine()));
+          break;
+        case "2":
+          Console.WriteLine("Enter a number between 1 to 7 for days of week:");
+          NumberToWeekdays(Convert.ToInt32(Console.ReadLine()));
+          break;
+        case "3":
+          Console.WriteLine("Good Bye :)");
+          break;
+        default:
+          Console.WriteLine("You Entered Wrong item\nTry again.");
+          Console.ReadKey();
+          break;
+      }
+    }
+
+    static void NumberToAlphabet(int number)
+    {
+      if (number > 0 && number <= 10)
+      {
+        var day = (Numbers)number;
+        Console.WriteLine($"--> Result:{day}");
+      }
+      else
+      {
+        Console.WriteLine("You entered out of range!");
+      }
+      Console.ReadKey();
+
+    }
+    static void NumberToWeekdays(int number)
+    {
+      if (number > 0 && number <= 7)
+      {
+        var weekday = (WeekDays)number;
+        Console.WriteLine($"--> Today is {weekday} :)");
+      }
+      else
+      {
+        Console.WriteLine("You entered out of range!");
+      }
+      Console.ReadKey();
+    }
+  }
+}
